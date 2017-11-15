@@ -51,6 +51,10 @@ RPATH_PYTHON         := '-Wl,-rpath,@loader_path/lib/'
 RPATH_NODEJS         := '-Wl,-rpath,@loader_path/../../../'
 endif
 
+ifeq ($(OS),Linux)
+PYTHON_PLATFORM_NAME := --plat-name manylinux1_x86_64
+endif
+
 # Takes care of looking into bindings built (SRC_FILE, can contain a wildcard)
 # for missing dependencies and copying those dependencies into the
 # TARGET_LIB_DIR. If supplied, MANIFEST_IN will be echo'ed to a list of
